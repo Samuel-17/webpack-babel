@@ -3,11 +3,12 @@ import ReactDOM from "react-dom";
 
 class App extends React.Component {
   state = {
-    cep: [],
+    cep: {},
   };
 
   componentDidMount() {
-    fetch("https://viacep.com.br/ws/30628110/json/")
+    const CEP = 0000000;https://github.com/Samuel-17/webpack-babel/blob/main/src/App.jsx
+    fetch(`https://viacep.com.br/ws/${CEP}/json/`)
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
@@ -16,9 +17,9 @@ class App extends React.Component {
   }
 
   render() {
-    const myName = "Vittor";
     const {cep} = this.state; 
-    return <h1>Hello World {cep.logradouro}</h1>;
+    return (<h1>My cep {cep}</h1>);
+    
   }
 }
 
